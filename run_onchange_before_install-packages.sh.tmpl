@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+# packages.yaml hash: {{ include ".chezmoidata/packages.yaml" | sha256sum }}
+
+{{ if eq .chezmoi.os "linux" -}}
+{{ if (or (eq .chezmoi.osRelease.id "ubuntu") (eq .chezmoi.osRelease.id "debian")) -}}
+
+echo "Checking for missing apt packages..."
+
+# Identify which packages from our list are NOT installed
+MISSING_PACKAGES=()
+{{ range .packages.apt -}}
+if ! dpkg -s {{ . }} >/dev/null 2>&1; then
+    MISSING_PACKAGES+=({{ . }})
+else
+    echo "Already installed: {{ . }}"
+fi
+{{ end -}}
+
+if [ ${#MISSING_PACKAGES[@]} -gt 0 ]; then
+    echo "Installing: ${MISSING_PACKAGES[*]}"
+    sudo apt-get update
+    sudo apt-get install -y "${MISSING_PACKAGES[@]}"
+else
+    echo "All apt packages are already installed."
+fi
+
+{{ end -}}
+{{ end -}}
+

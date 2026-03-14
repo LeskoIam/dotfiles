@@ -1,0 +1,10 @@
+packages:
+  apt:
+    - vim
+    - htop
+    - terminator
+    - mtr-tiny
+    - tree
+    - shellcheck
+    # - bat 
+
