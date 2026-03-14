@@ -106,7 +106,7 @@ set tabstop=4
 
 " Linebreak on 500 characters
 set lbr
-set tw=70
+" set tw=121
 
 set ai "Auto indent
 set si "Smart indent
