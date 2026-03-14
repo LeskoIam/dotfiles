@@ -9,7 +9,9 @@ alias weather="curl wttr.in/?2Fn"
 alias clcf="clear && fastfetch"
 alias bonsai="cbonsai -l -t 0.04 -M 13 -L 76 -i -p"
 
+{{- if eq .chezmoi.hostname "ETREL-90085" }}
 alias qli='qasectl'
+{{- end }}
 
 # Pretify ip output
 alias ip='ip -color=auto'
