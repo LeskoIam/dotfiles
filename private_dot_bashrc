@@ -119,16 +119,6 @@ fi
 
 . "$HOME/.local/bin/env"
 
-source '/home/matevz.polensek@etrel.pri/.bash_completions/clitrif.py.sh'
-. "$HOME/.cargo/env"
-
-source '/home/matevz.polensek@etrel.pri/.bash_completions/clitrif.sh'
-
-
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-source '/home/matevz.polensek@etrel.pri/.bash_completions/wfhreporter.sh'
-
 # Random Chafa Logo for Fastfetch
 function fetch_random_logo() {
     # Pick a random image from the folder
@@ -147,6 +137,5 @@ function fetch_random_logo() {
 clear
 fetch_random_logo
 
-
-
+source "$HOME/.bashrc_work"
 
