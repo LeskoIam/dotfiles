@@ -1,0 +1,172 @@
+"""""""""""""""""""""""""""
+" Basic
+"""""""""""""""""""""""""""
+" 'nu' same as 'numbers'
+set nu
+set cursorline
+set scrolloff=7
+set nocompatible
+syntax on
+
+
+
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': 'md'}]
+let g:vimwiki_ext2syntax = {'.md': 'markdown'}
+
+
+"""""""""""""""""""""""""""
+" General
+"""""""""""""""""""""""""""
+" Sets how many lines of history VIM has to remember
+set history=700
+
+" Enable filetype plugins
+filetype plugin on
+filetype indent on
+
+
+"""""""""""""""""""""""""""
+" User Interface
+"""""""""""""""""""""""""""
+" Ignore compiled files
+set wildignore=*.o,*~,*.pycž
+
+"Always show current position
+set ruler
+
+" Height of the command bar
+set cmdheight=2
+
+" Configure backspace so it acts as it should act
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+
+" Ignore case when searching
+set ignorecase
+
+" When searching try to be smart about cases
+set smartcase
+
+" Highlight search results
+set hlsearch
+
+" Makes search act like search in modern browsers
+set incsearch
+
+" Show matching brackets when text indicator is over them
+set showmatch
+" How many tenths of a second to blink when matching brackets
+set mat=2
+
+" No annoying sound on errors
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+
+
+"""""""""""""""""""""""""""
+" Colors and Fonts
+"""""""""""""""""""""""""""
+" Enable syntax highlighting
+syntax enable
+
+colorscheme slate
+" set background=dark
+
+" Set utf8 as standard encoding and en_US as the standard language
+set encoding=utf8
+
+" Use Unix as the standard file type
+set ffs=unix,dos,mac
+
+
+"""""""""""""""""""""""""""
+" Files, Backups amd Undo
+"""""""""""""""""""""""""""
+" Turn backup off, since most stuff is in SVN, git et.c anyway...
+set nobackup
+set nowb
+set noswapfile
+
+
+"""""""""""""""""""""""""""
+" Text, tab and indent related
+"""""""""""""""""""""""""""
+" Use spaces instead of tabs
+set expandtab
+
+" Be smart when using tabs ;)
+set smarttab
+
+" 1 tab == 4 spaces
+set shiftwidth=4
+set tabstop=4
+
+" Linebreak on 500 characters
+set lbr
+set tw=70
+
+set ai "Auto indent
+set si "Smart indent
+set wrap "Wrap lines
+
+
+"""""""""""""""""""""""""""
+" Moving around, tabs, windows and buffers
+"""""""""""""""""""""""""""
+" Return to last edit position when opening files (You want this!)
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+" Remember info about open buffers on close
+set viminfo^=%
+
+
+"""""""""""""""""""""""""""
+" Editing mappings
+"""""""""""""""""""""""""""
+
+" Delete trailing white space on save, useful for Python and CoffeeScript ;)
+func! DeleteTrailingWS()
+  exe "normal mz"
+  %s/\s\+$//ge
+  exe "normal `z"
+endfunc
+autocmd BufWrite *.py :call DeleteTrailingWS()
+autocmd BufWrite *.coffee :call DeleteTrailingWS()
+
+
+"""""""""""""""""""""""""""
+" Misc
+"""""""""""""""""""""""""""
+" Remove the Windows ^M - when the encodings gets messed up
+noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
+
+" Quickly open a buffer for scripbble
+map <leader>q :e ~/buffer<cr>
+
+" Toggle paste mode on and off
+map <leader>pp :setlocal paste!<cr>
+
+
+"""""""""""""""""""""""""""
+" Vim-Plugin
+"""""""""""""""""""""""""""
+call plug#begin('~/.vim/plugged')
+
+" List your plugins here
+" Plug 'tpope/vim-sensible'
+Plug 'dense-analysis/ale'
+Plug 'vimwiki/vimwiki'
+
+call plug#end()
+
+let g:ale_linters = {'sh': ['shellcheck']}
+let g:ale_lint_on_text_changed = 'always'
+" Show errors in the 'sign column' on the left
+let g:ale_sign_column_always = 1
+
+

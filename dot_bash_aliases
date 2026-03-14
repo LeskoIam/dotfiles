@@ -1,0 +1,17 @@
+alias clc='clear'
+alias cls='clear'
+alias start='nautilus'
+alias myip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
+alias hgrep="history | grep"
+alias fd='fdfind'
+alias weather="curl wttr.in/?2Fn"
+
+
+alias qli='qasectl'
+
+# Pretify ip output
+alias ip='ip -color=auto'
+
+# Show DNS used
+showdns() { nmcli device show "$1" | grep IP4.DNS; }
+
