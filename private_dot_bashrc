@@ -137,5 +137,8 @@ function fetch_random_logo() {
 clear
 fetch_random_logo
 
-source "$HOME/.bashrc_work"
+# Load work .bashrc
+if [ -f "$HOME/.bashrc_work" ]; then
+    source "$HOME/.bashrc_work"
+fi
 
