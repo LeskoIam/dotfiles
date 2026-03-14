@@ -6,6 +6,7 @@ alias hgrep="history | grep"
 alias fd='fdfind'
 alias weather="curl wttr.in/?2Fn"
 
+alias clcf="clear && fastfetch"
 alias bonsai="cbonsai -l -t 0.04 -M 13 -L 76 -i -p"
 
 alias qli='qasectl'
