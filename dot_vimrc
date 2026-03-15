@@ -8,9 +8,9 @@ set scrolloff=7
 set nocompatible
 syntax on
 
+packadd chezmoi.vim
 
-
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': 'md'}]
+let g:vimwiki_list = [{'path': '~/vimwiki/personal/', 'syntax': 'markdown', 'ext': 'md'}, {'path': '~/vimwiki/work/', 'syntax': 'markdown', 'ext': 'md'}]
 let g:vimwiki_ext2syntax = {'.md': 'markdown'}
 
 
