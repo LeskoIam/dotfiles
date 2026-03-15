@@ -6,5 +6,12 @@ packages:
     - mtr-tiny
     - tree
     - shellcheck
-    # - bat 
+    - ranger
+    - fastfetch
+    - chafa
+    - fd-find
+    - bat
+  snap:
+    - btop
+    - tldr
 
