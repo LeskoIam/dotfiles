@@ -18,7 +18,10 @@ fi
 if [ ${#MISSING_PACKAGES[@]} -gt 0 ]; then
     echo "Installing: ${MISSING_PACKAGES[*]}"
     sudo apt-get update
-    sudo apt-get install -y "${MISSING_PACKAGES[@]}"
+    for package in "${MISSING_PACKAGES[@]}"; do
+        echo "Installing package $package ..."
+        sudo apt install -y "$package" || echo "Failed to install $package (may not exist in repos)"
+    done
 else
     echo "All apt packages are already installed."
 fi
