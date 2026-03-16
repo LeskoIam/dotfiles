@@ -133,8 +133,7 @@ function fetch_random_logo() {
     fi
 }
 
-# Run the function, clear screen first
-clear
+# Run the function
 fetch_random_logo
 
 # Load work .bashrc
