@@ -14,6 +14,7 @@ if ! dpkg -s {{ . }} >/dev/null 2>&1; then
 fi
 {{ end -}}
 
+
 # Install missing apt packages
 if [ ${#MISSING_APT_PACKAGES[@]} -gt 0 ]; then
     echo "Installing: ${MISSING_APT_PACKAGES[*]}"
@@ -26,6 +27,7 @@ else
     echo "All apt packages are already installed."
 fi
 
+
 # 3. Snap Package Management
 {{ if .packages.snap -}}
 echo "Checking for missing snap packages..."
@@ -37,6 +39,7 @@ fi
 {{ end -}}
 {{ end -}}
 
+
 # batcat needs to be linked as bat command
 if command -v batcat >/dev/null 2>&1; then
     if [[ ! -f "$HOME/.local/bin/bat" ]]; then
@@ -45,6 +48,18 @@ if command -v batcat >/dev/null 2>&1; then
         ln -s "$(which batcat)" "$HOME/.local/bin/bat"
     fi
 fi
+
+
+{{ if has "fastfetch" .packages.apt -}}
+# If fasfatch is still not installed add its PPA and try installing again
+if ! fastfetch --version > /dev/null 2>&1; then
+  echo "fastfetch not installed. Adding PPA and trying again ..."
+  sudo add-apt-repository -y ppa:zhangsongcui3371/fastfetch
+  sudo apt-get update
+  sudo apt-get install -y fastfetch
+fi
+{{ end }}
+
 
 {{ end -}}
 {{ end -}}
