@@ -28,7 +28,7 @@ fi
 
 # batcat needs to be linked as bat command
 if [[ ! -f "$HOME/.local/bin/bat" ]]; then
-    if dpkg -s bat >/dev/null 2>&1; then
+    if dpkg -s batcat >/dev/null 2>&1; then
         mkdir -p "$HOME/.local/bin"
         ln -s "/usr/bin/batcat" "$HOME/.local/bin/bat"
     fi
