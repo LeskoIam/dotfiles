@@ -1,6 +1,6 @@
-"""""""""""""""""""""""""""
-" Basic
-"""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""
+" My --personal-- configs and basic stuff
+""""""""""""""""""""""""""""""""""""""""""
 " 'nu' same as 'numbers'
 set nu
 set cursorline
@@ -15,6 +15,32 @@ let g:vimwiki_global_ext = 0
 
 " default updatetime 4000ms is not good for vim-signify (git gutter) async update
 set updatetime=100
+
+function! DisableArrows()
+    noremap <Up> <Nop>
+    noremap <Down> <Nop>
+    noremap <Left> <Nop>
+    noremap <Right> <Nop>
+    inoremap <Up> <Nop>
+    inoremap <Down> <Nop>
+    inoremap <Left> <Nop>
+    inoremap <Right> <Nop>
+    echo "Hard Mode: ON (Arrows Disabled)"
+endfunction
+" :call DisableArrows
+
+function! EnableArrows()
+    unmap <Up>
+    unmap <Down>
+    unmap <Left>
+    unmap <Right>
+    iunmap <Up>
+    iunmap <Down>
+    iunmap <Left>
+    iunmap <Right>
+    echo "Hard Mode: OFF (Arrows Enabled)"
+endfunction
+" :call EnableArrows
 
 """""""""""""""""""""""""""
 " General
