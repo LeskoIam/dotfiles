@@ -193,6 +193,8 @@ Plug 'dense-analysis/ale'
 Plug 'vimwiki/vimwiki'
 " Git gutter display
 Plug 'mhinz/vim-signify'
+" Starify - vim start screen
+Plug 'mhinz/vim-startify'
 
 call plug#end()
 
