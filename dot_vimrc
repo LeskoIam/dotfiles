@@ -8,12 +8,13 @@ set scrolloff=7
 set nocompatible
 syntax on
 
-packadd chezmoi.vim
-
 let g:vimwiki_list = [{'path': '~/vimwiki/personal/', 'syntax': 'markdown', 'ext': 'md'}, {'path': '~/vimwiki/work/', 'syntax': 'markdown', 'ext': 'md'}]
 let g:vimwiki_ext2syntax = {'.md': 'markdown'}
 " Only apply vimwiki functionality in `path` directories defined in g:vimwiki_list
 let g:vimwiki_global_ext = 0
+
+" default updatetime 4000ms is not good for vim-signify (git gutter) async update
+set updatetime=100
 
 """""""""""""""""""""""""""
 " General
@@ -164,8 +165,12 @@ call plug#begin('~/.vim/plugged')
 " Plug 'tpope/vim-sensible'
 Plug 'dense-analysis/ale'
 Plug 'vimwiki/vimwiki'
+" Git gutter display
+Plug 'mhinz/vim-signify'
 
 call plug#end()
+
+packadd chezmoi.vim
 
 let g:ale_linters = {'sh': ['shellcheck']}
 let g:ale_lint_on_text_changed = 'always'
