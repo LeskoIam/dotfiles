@@ -11,7 +11,9 @@ packages:
     - chafa
     - fd-find
     - bat
-  snap:
     - btop
-    - tldr
+  snap:
+    - name: tldr
+      classic: false
+
 
