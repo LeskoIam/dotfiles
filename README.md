@@ -1,11 +1,9 @@
 # dotfiles
-
 A collection of my *nix dotfiles.
 
 Uses [chezmoi](https://www.chezmoi.io/) for dotfile management.
 
 ## Prerequisites
-
 **OS**: Debian like[^*]
 
 1. Update apt: `apt-get update`
@@ -19,8 +17,16 @@ Uses [chezmoi](https://www.chezmoi.io/) for dotfile management.
 
 > It's possible `tzdata` will need user input (region select).
 
-## Test in docker
+## Main configs
+`~/.local/share/chezmoi/.chezmoidata`
 
+### `machines.yaml`
+Defines machines (computers) and their use.
+
+### `packages.yaml`
+Defines packages to be installed on a machine/s.
+
+## Test in docker
 ```bash
 docker run -it --rm ubuntu:latest bash -c "
   apt-get update && apt-get install -y curl git sudo software-properties-common snapd
