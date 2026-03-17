@@ -1,3 +1,7 @@
 README.md
 LICENSE
 
+{{- $is_dev_host := has .chezmoi.hostname .dev_hosts }}
+{{- if not $is_dev_host }}
+.ideavimrc
+{{- end }} 
