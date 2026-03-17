@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# .vimrc hash: {{ include "dot_vimrc" | sha256sum }}
+# .vimrc hash: {{ include "dot_vimrc.tmpl" | sha256sum }}
 # This script runs whenever .vimrc changes.
 
 echo "Checking Vim plugins..."
