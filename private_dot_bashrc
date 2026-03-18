@@ -119,6 +119,11 @@ fi
 
 . "$HOME/.local/bin/env"
 
+eval "$(fzf --bash)"
+export FZF_DEFAULT_COMMAND='fdfind --type f --strip-cwd-prefix --hidden'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND='fdfind --type d --strip-cwd-prefix --hidden'
+
 # Random Chafa Logo for Fastfetch
 function fetch_random_logo() {
     # Pick a random image from the folder

@@ -60,6 +60,13 @@ if ! fastfetch --version > /dev/null 2>&1; then
 fi
 {{ end }}
 
+# --- Scripted Installs ---
+{{ if .packages.script -}}
+{{ range .packages.script -}}
+echo "Running update script for {{ .name }}..."
+"{{ $.chezmoi.sourceDir }}/{{ .command }}"
+{{ end -}}
+{{ end -}}
 
 {{ end -}}
 {{ end -}}

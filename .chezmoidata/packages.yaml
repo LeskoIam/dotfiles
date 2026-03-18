@@ -15,5 +15,7 @@ packages:
   snap:
     - name: tldr
       classic: false
-
+  script:
+    - name: fzf
+      command: "scripts/fzfupdate.sh"
 
