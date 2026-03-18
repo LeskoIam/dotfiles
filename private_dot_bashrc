@@ -142,7 +142,7 @@ function fetch_random_logo() {
 fetch_random_logo
 
 # Load work .bashrc
-if [ -f "$HOME/.bashrc_work" ]; then
-    source "$HOME/.bashrc_work"
+if [ -f "$HOME/.config/bash/.bashrc_work" ]; then
+    source "$HOME/.config/bash/.bashrc_work"
 fi
 
