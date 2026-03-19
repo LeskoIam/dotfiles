@@ -16,7 +16,7 @@ let g:vimwiki_global_ext = 0
 " default updatetime 4000ms is not good for vim-signify (git gutter) async update
 set updatetime=100
 
-function! DisableArrows()
+function! HardmodeOn()
     noremap <Up> <Nop>
     noremap <Down> <Nop>
     noremap <Left> <Nop>
@@ -29,7 +29,7 @@ function! DisableArrows()
 endfunction
 " :call DisableArrows
 
-function! EnableArrows()
+function! HardmodeOff()
     unmap <Up>
     unmap <Down>
     unmap <Left>
