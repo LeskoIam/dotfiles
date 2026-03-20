@@ -25,9 +25,9 @@ function! HardmodeOn()
     inoremap <Down> <Nop>
     inoremap <Left> <Nop>
     inoremap <Right> <Nop>
-    echo "Hard Mode: ON (Arrows Disabled)"
+"    echo "Hard Mode: ON (Arrows Disabled)"
 endfunction
-" :call DisableArrows
+call HardmodeOn()
 
 function! HardmodeOff()
     unmap <Up>
@@ -38,9 +38,8 @@ function! HardmodeOff()
     iunmap <Down>
     iunmap <Left>
     iunmap <Right>
-    echo "Hard Mode: OFF (Arrows Enabled)"
+"    echo "Hard Mode: OFF (Arrows Enabled)"
 endfunction
-" :call EnableArrows
 
 """""""""""""""""""""""""""
 " General
