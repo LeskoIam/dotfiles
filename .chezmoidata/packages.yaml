@@ -18,5 +18,5 @@ packages:
       classic: false
   script:
     - name: fzf
-      command: "scripts/fzfupdate.sh"
+      command: ".scripts/fzfupdate.sh"
 
